@@ -1,0 +1,39 @@
+.regRed{
+  background-color: orange;
+}
+
+.content{
+   display: none;
+} 
+
+.content.active{
+   display: block;
+   height: 300px;
+   width: 200px;
+   background-color: skyblue;
+}
+
+ul,li{
+   list-style: none;
+   margin: 0;
+   padding: 5px 5px;
+}
+
+li{
+   display: flex;
+}
+
+span{
+   flex: 1;
+}
+
+li:nth-child(odd){
+   background-color: skyblue;
+}
+
+#map{
+   width:600px;
+   height:400px;
+   margin: 50px auto;
+   border:1px solid #ddd;
+}
