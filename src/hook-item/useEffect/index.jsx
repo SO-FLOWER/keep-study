@@ -3,7 +3,7 @@
 //----[2、如果依赖数组为空数组，那么回调函数会在第一次渲染结束后(componentDidMount)执行，返回的函数会在组件卸载时(componentWillUnmount)执行]
 //----[3、如果不传依赖数组，那么回调函数会在每一次渲染结束后(componentDidMount和componentDidUpdate)执行]
 //----[4、如果依赖数组不为空数组，那么回调函数会在依赖值每次更新渲染结束后（componentDidUpdate）执行，这个依赖值一般是 state 或者 props]
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 // const App = () => {
 //   const [count, setCount] = useState(0);
