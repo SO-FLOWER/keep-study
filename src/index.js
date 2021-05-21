@@ -16,7 +16,10 @@ import ReactDOM from "react-dom";
 // import ChildrenMome from "./hook-item/useMemo/childenMemo";
 // import UseRefUp from "./hook-item/useRef/useRefUp";
 // import Imperative from "./hook-item/useImperativeHandle/imperative";
-import UserDeined from "./hook-item/自定义Hook/userDEeined";
+// import UserDeined from "./hook-item/自定义Hook/userDeined";
+// import UseHookSelf from "./hook-item/自定义Hook/抽取公共代码/useHookSelf";
+// import FouceTime from "./hook-item/自定义Hook/获取滚动位置/fouceTime";
+import SaveSessionStorage from "./hook-item/自定义Hook/通过sessionStorage存储数据/saveSessionStorage";
 import "antd/dist/antd.css";
 
-ReactDOM.render(<UserDeined />, document.querySelector("#root"));
+ReactDOM.render(<SaveSessionStorage />, document.querySelector("#root"));
