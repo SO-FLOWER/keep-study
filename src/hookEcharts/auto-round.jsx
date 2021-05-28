@@ -119,7 +119,6 @@ const AutoRound = () => {
       ],
     };
     globalEchart.setOption(option);
-    //自动滚动
     setInterval(() => {
       //   console.log(1);
       if (option.dataZoom[0].endValue === KSMC.length) {

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const obj = [{ "foo": 'bar' }, { "baz": 24 }];
+        // const objOne = { foo: 'bar', baz: 23, hello: 22 }
+        // const map = new Map(Object.entries(objOne));
+
+        // console.log(Object.entries(obj)); //将一个数组转化为["0",{ foo: 'bar' }]
+        // console.log(Object.entries(objOne));
+        // console.log(map);
+
+        var dic = { c: 4, b: 2, a: 1, d: 3 };
+        console.log(dic);
+        for (var key in dic) {
+            console.log("key: " + key + " ,value" + dic[key]);
+        }
+
+        //按字典的key进行排列
+        var res = Object.keys(dic).sort();
+        for (var key in res) {
+            console.log("key " + res[key] + " ,value" + dic[res[key]]);
+        }
+
+        //按字典元素value值进行排列
+        //----
+        //   ----------------------------按照值对应的key进行从小到大排序
+        var resT = Object.keys(dic).sort((a, b) => { return dic[a] - dic[b] })
+        console.log(resT);
+        for (var key in resT) {
+            console.log("key " + resT[key] + " value " + dic[resT[key]]);
+        }
+
+
+        //改变数据类型里面的某个字段---------------------------------------------------------
+        let data = [{ id: '0502020', name: 'Jaon', age: 18 },
+        { id: '05101010', name: 'Tom', age: 24 }]
+
+        const changType = data.map(res => {
+            return {
+                ...res,
+                id: Number(res.id),
+            }
+        })
+        const idType = data.map(item => { return item.id });
+        console.log(idType);
+        console.log(changType);
+        //增加修改某个字段名称----------------------------------------------------------------
+        const detelType = data.map(res => {
+            return {
+                ...res,
+                username: res.name
+            }
+        })
+        console.log(detelType);
+        //修改删除并增加某个字段--------------------------------------------------------------
+        const reqType = data.map(res => {
+            let username = res.name;
+            delete res.name
+            return {
+                ...res,
+                username: username
+            }
+        })
+        console.log(reqType);
+
+
+    </script>
+</body>
+
+</html>

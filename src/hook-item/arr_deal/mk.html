@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+    <ul class="aaa"></ul>
+    <ul class="bbb"></ul>
+    <ul class="ccc"></ul>
+    <div class="ddd"></div>
+    <script>
+        let allData = [];//接口获取数据
+        let xiaoqu = [];//小区列表
+        let xiaoquN = '';//选中小区名称；
+        let danyuan = [];//单元名称
+        let danyuanN = '';//选中单元名称
+        let loucheng = [];//楼层
+        let louchengN = '';//选中楼层
+
+         $.get("http://8.135.115.201:9370/dip/dataService/api/getData/yuhua/dnzhc", function(result){
+              
+
+            allData = result.result;
+                result.result.map((val,index)=>{    //获取json中所有的楼栋列表
+                    xiaoqu.push(val.bul_name);
+                })
+                
+                let xiaoqu1 =Array.from(new Set(xiaoqu));  //将楼栋列表去重 
+                xiaoquN = xiaoqu1[0];    //默认选中第一个楼栋
+                console.log(xiaoquN);
+                xiaoqu1.map(val=>{  //将楼栋列表渲染出来
+                    $('.aaa').append('<li class="a">'+val+'</li>')
+                })
+                console.log(xiaoqu,'/',xiaoqu1[0]);
+
+                result.result.map((val,index)=>{   
+                    if(val.bul_name== xiaoquN ){   //再次遍历数组 将是选中楼栋的单元获取
+                        danyuan.push(val.cell)
+                    }
+                })
+                console.log(danyuan);
+                danyuan = Array.from(new Set(danyuan));  //将选中的单元去重
+                danyuanN = danyuan[0];  //默认选中的第一个单元 
+                danyuan.map(val=>{     //将单元渲染出来
+                    $('.bbb').append('<li class="b">'+val+'</li>')
+                })
+                
+                result.result.map((val,index)=>{
+                    if(val.cell== danyuanN && val.bul_name== xiaoquN ){  //判断是否选中的单元和楼层 ，是的话获取该用户的全部信息
+                        loucheng.push(val)
+                    }
+                })
+                loucheng.map(val=>{     //将用户的floor_num渲染出来
+                    $('.ccc').append('<li class="c">'+val.room+'</li>')
+                })
+                console.log(loucheng);
+
+                    $('body').on('click','.c',function(){
+                    
+                        let index = $(this).index(); //获取点击用户在 loucheng 数组中的位置
+                        let aaa = `<p>${loucheng[index].name}</p>`   //获取用户的信息并渲染出来
+                        $('.ddd').html(aaa)
+                    })
+                $('body').on('click','.b',function(){
+                   
+                   
+                    let b = $(this).text(); //获取选中的楼层
+                    console.log(b);
+                    loucheng=[];
+                    $('.ccc').html(''); //清空 floor——num
+                    allData.map((val,index)=>{
+                    if(val.cell== b && val.bul_name== xiaoquN ){  //判断是否选中的单元和楼层 ，是的话获取该用户的全部信息
+                        loucheng.push(val)
+                    }
+                })
+                
+                loucheng.map(val=>{     //将用户的floor_num渲染出来
+                    $('.ccc').append('<li class="c">'+val.room+'</li>')
+                })
+                   
+               })
+
+                
+            });
+
+            
+
+    </script>
+    <style>
+        li{
+            display: inline-block;
+            list-style-type: none;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+    </style>
+
+</body>
+</html>

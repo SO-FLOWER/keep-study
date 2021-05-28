@@ -19,7 +19,8 @@ import ReactDOM from "react-dom";
 // import UserDeined from "./hook-item/自定义Hook/userDeined";
 // import UseHookSelf from "./hook-item/自定义Hook/抽取公共代码/useHookSelf";
 // import FouceTime from "./hook-item/自定义Hook/获取滚动位置/fouceTime";
-import SaveSessionStorage from "./hook-item/自定义Hook/通过sessionStorage存储数据/saveSessionStorage";
+// import SaveSessionStorage from "./hook-item/自定义Hook/通过sessionStorage存储数据/saveSessionStorage";
+import DealNum from "./axiosTwins/dealNum";
 import "antd/dist/antd.css";
 
-ReactDOM.render(<SaveSessionStorage />, document.querySelector("#root"));
+ReactDOM.render(<DealNum />, document.querySelector("#root"));
