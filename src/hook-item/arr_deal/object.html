@@ -71,7 +71,84 @@
             }
         })
         console.log(reqType);
+        //--------------------------------------------------------------------------------------------------------------------------------
+        //处理数据案例
+        //answer：答案    world：题目     type：题目类型
+        let dataAll = [
+            {
+                answer: ["0绿色", "1绿色", "2绿色", "3绿色"],
+                freq: 2,
+                type: "en2cn",
+                world: "green"
+            },
+            {
+                answer: ["0黄色", "1黄色", "2黄色", "3黄色"],
+                freq: 2,
+                type: "en2cn",
+                world: "yellow"
+            },
+            {
+                answer: ["0蓝色", "1蓝色", "2蓝色", "3蓝色"],
+                freq: 2,
+                type: "en2cn",
+                world: "bule"
+            },
+            {
+                answer: ["0红色", "1红色", "2红色", "3红色"],
+                freq: 2,
+                type: "en2cn",
+                world: "red"
+            }
+        ]
+        //每一项的第一项为正确答案
+        dataAll.forEach(item => {
+            item.isAnswer = item.answer[0]  //把正确答案记录下来
+            let trueAnswer = item.answer;
+            let newArr = []; //用来存放打乱后的数组
+            for (var i = 0; i < trueAnswer.length; i++) {
+                let index = Math.floor(Math.random() * trueAnswer.length);
+                newArr.push(trueAnswer[index])
+                if (trueAnswer[index] === item.isAnswer) {
+                    item.isAnswerIndex = i  //记录下被打乱后正确答案的下标
+                }
+                trueAnswer.splice(index, 1)
+            }
+            return item.answer = newArr
+        })
+        console.log(dataAll);
 
+        function name() {
+            const num = 67;
+            return num
+        }
+        console.log(name());
+
+
+
+        function name(params) {
+            if (params > 3) {
+                return params = 5
+            }
+            return params = 6
+        }
+
+        console.log(name(2));
+
+        let person = new Person("zhangsna ")
+        function Person(name) {
+            this.name = name
+        }
+        console.log(person.name);
+
+        var obj = { "name": "json", "age": 24, "sex": "boy" };
+        var array = ["json", "boy,", "gril"];
+        for (var key in obj) {
+            console.log(key);
+            console.log(obj[key])
+        }
+        for (index in array) {
+            console.log(array[index])
+        }
 
     </script>
 </body>

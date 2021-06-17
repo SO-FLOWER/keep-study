@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import jsonData from "./feiyan.json";
+import jsonData from "../checkList/feiyan.json";
 import "./index.css";
 
 console.log(jsonData);
@@ -53,7 +53,7 @@ let provinceListSort = provinceList.sort((a, b) => {
 
 console.log(provinceListSort);
 
-class Bili extends Component {
+export default class Bili extends Component {
   render() {
     return (
       <div>

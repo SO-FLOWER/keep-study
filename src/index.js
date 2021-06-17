@@ -9,7 +9,7 @@ import ReactDOM from "react-dom";
 // import AutoRound from "./hookEcharts/auto-round";
 // import App from "./hook-item/useEffect";
 // import App from "./hook-item/useStateList";
-// import App from './inputCommit/App.jsx';
+// import App from './inputCommit/App.jsx';y
 // import EchartsHook from "./hookEcharts/hook-echarts";
 // import './index.css'
 // import CountMemo from "./hook-item/useMemo/countMemo";
@@ -20,7 +20,9 @@ import ReactDOM from "react-dom";
 // import UseHookSelf from "./hook-item/自定义Hook/抽取公共代码/useHookSelf";
 // import FouceTime from "./hook-item/自定义Hook/获取滚动位置/fouceTime";
 // import SaveSessionStorage from "./hook-item/自定义Hook/通过sessionStorage存储数据/saveSessionStorage";
-import DealNum from "./axiosTwins/dealNum";
+// import DealNum from "./axiosTwins/dealNum";
+// import Bili from "./reactList/09demo创建图表";
+import Carousel from "./component/swiper";
 import "antd/dist/antd.css";
 
-ReactDOM.render(<DealNum />, document.querySelector("#root"));
+ReactDOM.render(<Carousel />, document.querySelector("#root"));
